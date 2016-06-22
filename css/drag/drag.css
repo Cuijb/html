@@ -1,0 +1,11 @@
+.boxDiv {
+	float: left;
+	width: 500px;
+    height: 500px;
+    border: 1px solid #000000;
+}
+
+img {
+	width: 100px;
+    height: 100px;
+}
