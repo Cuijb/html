@@ -75,7 +75,7 @@ $(function(){
 		for ( var index in nodes) {
 			var node = nodes[index];
 			if(node[dimen]){
-				if((!values.length && node[dimen]) || values.includes(node[dimen])){
+				if((!values.length && node[dimen]) || values.indexOf(node[dimen])>=0){
 					selecteds.push(node);
 				}
 			}
@@ -91,7 +91,7 @@ $(function(){
 		for ( var index in nodes) {
 			var node = nodes[index];
 			var tag = node[dimen];
-			if(tag && !tags.includes(tag)){
+			if(tag && tags.indexOf(tag)<0){
 				tags.push(tag);
 			}
 		}
