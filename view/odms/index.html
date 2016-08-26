@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DEMO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Meicai">
+
+<link href="../../css/odms/style.css" rel="stylesheet">
+<link href="../../css/odms/index.css" rel="stylesheet">
+<link href="../../css/odms/SimpleTree.css" rel="stylesheet">
+<link href="../../css/odms/odms.css" rel="stylesheet">
+<link href="../../css/odms/manage.css" rel="stylesheet">
+<style>
+.T-Odms-info tbody td {
+	width: auto;
+}
+</style>
+</head>
+<body class="sticky-header">
+	<section>
+		<div class="main-content">
+			<!-- 面包屑 start -->
+			<div class="T-pag">
+				<p>
+					<a id="nav1" href="#">组织机构管理</a>
+					&nbsp;&gt;&nbsp;
+					<a id="nav2" href="#">DEMO</a>
+					<span>
+						<select id="dimenSelector" class="searchable-select-holder">
+							<option value="pro">专业</option>
+							<option value="eia">职能</option>
+							<option value="bus">业务</option>
+							<option value="reg">区域</option>
+						</select>
+						崔佳宾
+						<a href="/odms/logout">退出</a>
+					</span>
+				</p>
+			</div>
+			<!-- 面包屑 end -->
+			<!-- body wrapper start -->
+			<div class="list">
+				<div class="st_tree"></div>
+			</div>
+			<div class="wrapper">
+				<div class="T-list-group">
+					<div class="T-Odms-info">
+						<h2 class="T-column">
+							<span id="nodeName">尚未选择</span>
+							<input class="form-control hidden T-Disable" id="nodeUpper" placeholder="上级节点编号" onfocus="this.select()">
+							<input class="form-control hidden T-Disable" id="nodeCode" placeholder="节点编号" onfocus="this.select()">
+						</h2>
+						<table class="T-Info-table">
+							<tbody>
+								<tr>
+									<td class="T-Info-date">
+										<span class="T-Info-key">专业：</span>
+										<input class="form-control T-Info-value" id="nodePro" placeholder="请输入专业标签" onfocus="this.select()">
+									</td>
+									<td class="T-Info-upper">
+										<span class="T-Info-key">职能：</span>
+										<input class="form-control T-Info-value" id="nodeEia" placeholder="请输入职能标签" onfocus="this.select()">
+									</td>
+									<td class="T-Info-type">
+										<span class="T-Info-key">业务：</span>
+										<input class="form-control T-Info-value" id="nodeBus" placeholder="请输入业务标签" onfocus="this.select()">
+									</td>
+									<td class="T-Info-ower">
+										<span class="T-Info-key">区域：</span>
+										<input class="form-control T-Info-value" id="nodeReg" placeholder="请输入区域标签" onfocus="this.select()">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="../../js/odms/jquery-1.10.2.min.js"></script>
+	<script src="../../js/odms/SimpleTree.js"></script>
+	<script src="../../js/odms/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+
+.T-Upper-code, .T-Upper-name, .T-Upper-date, .T-Upper-operation {
+	width: 25%;
+}
+
+.T-Lower-code, .T-Lower-date {
+	width: 25%;
+}
+
+.T-Lower-name {
+	width: 50%;
+}
+
+.T-Post-code, .T-Post-date {
+	width: 20%;
+}
+
+ .T-Post-name {
+	width: 30%;
+}
+
+.T-Post-major {
+	width: 10%;
+}
+
+.T-Post-oper {
+	width: 20%;
+}
+
+.T-User-code, .T-User-sex, .T-User-type {
+	width: 10%;
+}
+
+.T-User-name, .T-User-date {
+	width: 15%;
+}
+
+.T-User-post, .T-User-oper {
+	width: 20%;
+}
+
+/**撤销/复制岗位**/
+.modal-container .modal-flow {
+    margin: 0 auto;
+    height: 140px;
+    font-size: 14px;
+}
+.modal-flow .flow-area {
+    height: 118px;
+    border: 1px solid #ccc;
+    color: #ccc;
+}
+.flow-area span {
+    cursor: pointer;
+	float: left;
+	line-height: 20px;
+	padding: 5px 0 0 10px;
+    border-radius: 15px;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+.flow-area span:hover {
+    color: #1ec3c8;
+    font-weight: bold;
+}
+
+/** 添加员工 **/
+.T-column .custom-combobox {
+    height: 32px;
+}
+.T-column .custom-combobox > input, .T-column .custom-combobox > a {
+    height: inherit;
+}
+.T-column .custom-combobox > a {
+    position: relative;
+    margin-top: -1px;
+}
