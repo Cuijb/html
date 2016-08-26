@@ -23,29 +23,6 @@ $(function(){
 			upper: "",
 		};
 	};
-	var updateNode = function(nodeCode, tagKey, tagVale){
-		var nodes = getNodes();
-		for ( var index in nodes) {
-			var node = nodes[index];
-			if(nodeCode == node.code){
-				node[tagKey] = tagVale;
-				break;
-			}
-		}
-		setNodes(nodes);
-	};
-	var updatePro = function(nodeCode, tag){
-		updateNode(nodeCode, "pro", tag);
-	};
-	var updateEia = function(nodeCode, tag){
-		updateNode(nodeCode, "eia", tag);
-	};
-	var updateBus = function(nodeCode, tag){
-		updateNode(nodeCode, "bus", tag);
-	};
-	var updateReg = function(nodeCode, tag){
-		updateNode(nodeCode, "reg", tag);
-	};
 	
 	// 更新组织树
 	var updateNodeTree = function(nodes){
@@ -91,21 +68,89 @@ $(function(){
 		$tree.find("li:first").trigger("click");
 	};
 	
+	var nodeTreeFilter = function(dimen, values){
+		values = values || [];
+		var selecteds = [];
+		var nodes = getNodes();
+		for ( var index in nodes) {
+			var node = nodes[index];
+			if(node[dimen]){
+				if((!values.length && node[dimen]) || values.includes(node[dimen])){
+					selecteds.push(node);
+				}
+			}
+		}
+		updateNodeTree(selecteds);
+	};
+	var updateTags = function(dimen){
+		if(!dimen){
+			return;
+		}
+		var tags = [];
+		var nodes = getNodes();
+		for ( var index in nodes) {
+			var node = nodes[index];
+			var tag = node[dimen];
+			if(tag && !tags.includes(tag)){
+				tags.push(tag);
+			}
+		}
+		var $area = $("#" + dimen + "Area").empty();
+		for ( var index in tags) {
+			var tag = tags[index];
+			$area.append($("<span>").text(tag).click(function(){
+				$(".T-PAuth-table").find(".selected").removeClass("selected");
+				var tag = $(this).addClass("selected").text();
+				nodeTreeFilter($(this).parent().attr("id").replace("Area", ""), [tag]);
+			}));
+		}
+	};
+	var updateNode = function(nodeCode, tagKey, tagVale){
+		var nodes = getNodes();
+		for ( var index in nodes) {
+			var node = nodes[index];
+			if(nodeCode == node.code){
+				node[tagKey] = tagVale;
+				break;
+			}
+		}
+		setNodes(nodes);
+		updateTags("pro");
+		updateTags("eia");
+		updateTags("bus");
+		updateTags("reg");
+	};
+	
 	$("#nodePro").change(function(){
-		updatePro(getCode(), $(this).val());
+		updateNode(getCode(), "pro", $(this).val());
 	});
 	
 	$("#nodeEia").change(function(){
-		updateEia(getCode(), $(this).val());
+		updateNode(getCode(), "eia", $(this).val());
 	});
 	
 	$("#nodeBus").change(function(){
-		updateBus(getCode(), $(this).val());
+		updateNode(getCode(), "bus", $(this).val());
 	});
 	
 	$("#nodeReg").change(function(){
-		updateReg(getCode(), $(this).val());
+		updateNode(getCode(), "reg", $(this).val());
 	});
 	
+	$("#clearBtn").click(function(){
+		$(".T-PAuth-table").find(".selected").removeClass("selected");
+		updateNodeTree(getNodes());
+	});
+	
+	$(".dimenBtn").click(function(){
+		$(".T-PAuth-table").find(".selected").removeClass("selected");
+		$(this).addClass("selected");
+		nodeTreeFilter($(this).attr("id").replace("Btn", ""), []);
+	});
+
+	updateTags("pro");
+	updateTags("eia");
+	updateTags("bus");
+	updateTags("reg");
 	updateNodeTree(getNodes());
 });

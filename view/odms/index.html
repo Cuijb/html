@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Meicai">
-
 <link href="../../css/odms/style.css" rel="stylesheet">
 <link href="../../css/odms/index.css" rel="stylesheet">
 <link href="../../css/odms/SimpleTree.css" rel="stylesheet">
@@ -15,6 +14,42 @@
 <style>
 .T-Odms-info tbody td {
 	width: auto;
+}
+
+.T-PAuth-table tr {
+	height: auto;
+}
+
+.T-PAuth-table .T-PAuth-owner {
+	width: 15%;
+}
+
+.T-PAuth-table .T-PAuth-range {
+	width: 85%;
+}
+
+.T-PAuth-table span {
+	cursor: pointer;
+}
+
+.T-PAuth-table .T-PAuth-range span {
+	float: left;
+	line-height: 20px;
+	margin-top: 5px;
+	margin-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 0;
+	border-radius: 15px;
+	color: #1ec3c8;
+	font-weight: normal;
+	vertical-align: baseline;
+}
+
+.T-PAuth-table span.selected {
+    font-weight: bold;
+    font-size: 15px;
 }
 </style>
 </head>
@@ -28,12 +63,6 @@
 					&nbsp;&gt;&nbsp;
 					<a id="nav2" href="#">DEMO</a>
 					<span>
-						<select id="dimenSelector" class="searchable-select-holder">
-							<option value="pro">专业</option>
-							<option value="eia">职能</option>
-							<option value="bus">业务</option>
-							<option value="reg">区域</option>
-						</select>
 						崔佳宾
 						<a href="/odms/logout">退出</a>
 					</span>
@@ -75,6 +104,49 @@
 							</tbody>
 						</table>
 					</div>
+					<!-- 管理权限 start -->
+					<div class="T-Odms-list">
+						<h2 class="T-column">
+							<button type="button" class="btn btn-green" id="clearBtn" onfocus=this.blur()>恢复</button>
+						</h2>
+						<div class="T-Odms-table T-PAuth-table">
+							<table>
+								<thead>
+									<tr>
+										<td class="T-PAuth-owner">维度</td>
+										<td class="T-PAuth-range">详情</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="T-PAuth-owner">
+											<span class="dimenBtn" id="proBtn">专业</span>
+										</td>
+										<td class="T-PAuth-range" id="proArea"></td>
+									</tr>
+									<tr>
+										<td class="T-PAuth-owner">
+											<span class="dimenBtn" id="eiaBtn">职能</span>
+										</td>
+										<td class="T-PAuth-range" id="eiaArea"></td>
+									</tr>
+									<tr>
+										<td class="T-PAuth-owner">
+											<span class="dimenBtn" id="busBtn">业务</span>
+										</td>
+										<td class="T-PAuth-range" id="busArea"></td>
+									</tr>
+									<tr>
+										<td class="T-PAuth-owner">
+											<span class="dimenBtn" id="regBtn">区域</span>
+										</td>
+										<td class="T-PAuth-range" id="regArea"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- 管理权限 end -->
 				</div>
 			</div>
 		</div>
